@@ -1,0 +1,11 @@
+body{margin:0;font-family:Poppins,sans-serif}
+.dark{background:#0f0f0f;color:#fff}
+.light{background:#fff;color:#000}
+.navbar{display:flex;justify-content:space-between;padding:15px;background:#111;color:#fff}
+.logo{color:gold;font-size:24px}
+.hero{padding:120px;text-align:center;background:url('https://images.unsplash.com/photo-1600180758890-6b94519a8ba6') center/cover}
+.btn{background:gold;padding:12px 25px;border-radius:25px;color:#000;text-decoration:none}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:20px}
+.product{background:#1a1a1a;padding:15px;border-radius:15px;text-align:center}
+.product img{width:100%;border-radius:10px}
+button{padding:10px 15px;border:none;border-radius:20px;background:gold}
