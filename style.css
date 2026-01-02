@@ -94,3 +94,30 @@ body {
   transform: translateY(-2px);
 }
 
+
+/* Gradient backgrounds per slide */
+.hero-slide:nth-child(1) {
+  background: linear-gradient(
+    135deg,
+    #fff1f3,
+    #fdeff4
+  );
+}
+
+.hero-slide:nth-child(2) {
+  background: linear-gradient(
+    135deg,
+    #fdf6ec,
+    #fffaf0
+  );
+}
+
+/* Optional third slide later */
+.hero-slide:nth-child(3) {
+  background: linear-gradient(
+    135deg,
+    #f1f6ff,
+    #eef2ff
+  );
+}
+
