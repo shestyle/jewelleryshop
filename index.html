@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Handmade Jewelry</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="navbar">
-  <div class="logo">✨ Handmade</div>
-  <nav>
+<!-- TOP ANNOUNCEMENT BAR -->
+<div class="top-bar">
+  FREE JEWELLERY ORGANIZER WORTH ₹400 ON ORDERS ABOVE ₹1500
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar-salty">
+  <div class="nav-left">🔍</div>
+  <div class="nav-center">HANDMADE</div>
+  <div class="nav-right">
     <button id="darkToggle">🌙</button>
     <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
-  </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="floating-shape shape1"></div>
-  <div class="floating-shape shape2"></div>
+<!-- HERO -->
+<section class="hero-salty">
+  <img src="hero.jpg" class="hero-img" alt="Hero" />
 
-  <div class="hero-slide active">
-    <h1>Handcrafted Jewelry</h1>
-    <p>Minimal • Elegant • Timeless</p>
-    <a href="#products">Shop Now</a>
+  <div class="hero-text">
+    <span class="hero-sub">A La Carte</span>
+    <h1>JEWELLERY</h1>
+    <a href="#products" class="hero-btn">SHOP NOW</a>
   </div>
 </section>
 
+<!-- PRODUCTS -->
 <section class="products" id="products">
   <h2>Featured Collection</h2>
   <div class="grid" id="productGrid"></div>
 </section>
 
-<!-- CART DRAWER -->
+<!-- CART -->
 <div class="cart" id="cart">
   <h3>Your Cart</h3>
   <div id="cartItems"></div>
