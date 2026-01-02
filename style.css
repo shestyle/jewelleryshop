@@ -54,11 +54,15 @@ body {
   align-items: center;
   text-align: center;
 
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 0;
   opacity: 0;
   transform: scale(1.05);
   transition: opacity 1.2s ease, transform 1.2s ease;
-
-  color: #3a2d2d;
+  z-index: 1;
 }
 
 /* ACTIVE SLIDE */
