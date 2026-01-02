@@ -1,46 +1,51 @@
 import { db } from "./firebase.js";
-import { getDocs, collection } from
+import { collection, getDocs } from
 "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const grid = document.getElementById("productGrid");
-let allProducts = [];
+const cart = document.getElementById("cart");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
 
-async function loadProducts() {
+let products = [];
+let cartData = [];
+
+async function loadProducts(){
   const snap = await getDocs(collection(db,"products"));
-  snap.forEach(doc => allProducts.push(doc.data()));
-  render(allProducts);
+  snap.forEach(d => products.push({id:d.id,...d.data()}));
+  renderProducts();
 }
 
-function render(list) {
-  grid.innerHTML = "";
-  list.forEach(p => {
-    grid.innerHTML += `
+function renderProducts(){
+  grid.innerHTML="";
+  products.forEach(p=>{
+    grid.innerHTML+=`
       <div class="card">
         <img src="${p.imageURL}">
-        <h3>${p.name}</h3>
+        <h4>${p.name}</h4>
         <p>₹${p.price}</p>
+        <button onclick="addToCart('${p.id}')">Add to Cart</button>
       </div>
     `;
   });
 }
 
-window.filterProducts = c =>
-  render(c==="all" ? allProducts : allProducts.filter(p=>p.category===c));
+window.addToCart = id => {
+  const p = products.find(x=>x.id===id);
+  cartData.push(p);
+  cartCount.textContent = cartData.length;
+};
+
+document.getElementById("cartBtn").onclick=()=>cart.classList.toggle("show");
+
+document.getElementById("orderBtn").onclick=()=>{
+  let msg="Hello, I want to order:%0A";
+  cartData.forEach(p=>msg+=`• ${p.name} - ₹${p.price}%0A`);
+  window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`);
+};
+
+document.getElementById("darkToggle").onclick=()=>{
+  document.body.classList.toggle("dark");
+};
 
 loadProducts();
-
-/* HERO SLIDER */
-const slides = document.querySelectorAll(".hero-slide");
-let i = 0;
-setInterval(() => {
-  slides[i].classList.remove("active");
-  i = (i + 1) % slides.length;
-  slides[i].classList.add("active");
-}, 5000);
-
-/* PARALLAX */
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".floating-shape").forEach(s => {
-    s.style.transform = `translateY(${window.scrollY * 0.05}px)`;
-  });
-});
