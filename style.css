@@ -1,145 +1,147 @@
 :root {
-  --bg:#fffaf7;
-  --text:#3a2d2d;
-  --primary:#b76e79;
-}
-
-body.dark {
-  --bg:#121212;
-  --text:#f1f1f1;
+  --purple:#8b4aa8;
+  --bg:#ffffff;
+  --text:#1a1a1a;
 }
 
 body {
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro",sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
   background:var(--bg);
   color:var(--text);
 }
 
+/* TOP BAR */
+.top-bar {
+  background:#e3d4ef;
+  text-align:center;
+  padding:8px;
+  font-size:.8rem;
+  letter-spacing:1px;
+}
+
 /* NAVBAR */
-.navbar {
+.navbar-salty {
+  background:var(--purple);
+  color:white;
   display:flex;
+  align-items:center;
   justify-content:space-between;
-  padding:14px 20px;
-  position:sticky;
-  top:0;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(10px);
+  padding:16px 24px;
+}
+
+.nav-center {
+  font-size:2rem;
+  letter-spacing:4px;
+}
+
+.nav-right button {
+  background:none;
+  border:none;
+  color:white;
+  font-size:1.1rem;
+  margin-left:12px;
 }
 
 /* HERO */
-.hero {
-  height:70vh;
+.hero-salty {
   position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  height:80vh;
   overflow:hidden;
 }
-.hero-slide {
-  text-align:center;
-}
-.hero a {
-  padding:12px 26px;
-  background:var(--primary);
-  color:white;
-  border-radius:30px;
-  text-decoration:none;
+
+.hero-img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-/* FLOATING SHAPES */
-.floating-shape {
+.hero-text {
   position:absolute;
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  filter:blur(90px);
+  top:50%;
+  left:8%;
+  transform:translateY(-50%);
+  color:white;
 }
-.shape1 {background:#f5cfd6; left:-60px; top:20%;}
-.shape2 {background:#e1e8ff; right:-60px; bottom:20%;}
+
+.hero-sub {
+  font-style:italic;
+  font-size:1.3rem;
+}
+
+.hero-text h1 {
+  font-size:6rem;
+  margin:10px 0;
+  letter-spacing:2px;
+}
+
+.hero-btn {
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 32px;
+  background:white;
+  color:black;
+  text-decoration:none;
+  font-weight:600;
+}
 
 /* PRODUCTS */
 .products {
-  padding:30px;
+  padding:40px;
+  text-align:center;
 }
+
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
 }
+
+/* CARD */
 .card {
   background:white;
   border-radius:16px;
   padding:12px;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
+
 .card img {
   width:100%;
   border-radius:12px;
 }
+
 .card button {
-  margin-top: 12px;
-  width: 100%;
-  padding: 14px 16px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-
-  border: none;
-  border-radius: 14px;
-
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    #d48a95
-  );
-  color: white;
-
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top:10px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-size:1rem;
+  font-weight:600;
+  background:linear-gradient(135deg,#8b4aa8,#b983d1);
+  color:white;
 }
 
-/* Hover / tap effect */
-.card button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(183,110,121,0.35);
+/* CART */
+.cart {
+  position:fixed;
+  bottom:-100%;
+  left:0;
+  width:100%;
+  max-width:380px;
+  height:100%;
+  background:white;
+  box-shadow:-10px 0 30px rgba(0,0,0,.3);
+  padding:20px;
+  transition:.4s;
 }
 
-#cartBtn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: none;
-
-  background: #f2e6e8;
-  font-size: 1rem;
-  font-weight: 600;
-
-  cursor: pointer;
+.cart.show {
+  bottom:0;
 }
 
-#cartBtn span {
-  background: var(--primary);
-  color: white;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-}
-
-
-/* Mobile tap feedback */
-@media (max-width: 600px) {
-  .card button {
-    font-size: 1.1rem;
-    padding: 16px;
-  }
+/* MOBILE */
+@media(max-width:600px){
+  .hero-text h1 {font-size:3.5rem;}
+  .hero-text {left:6%;}
 }
