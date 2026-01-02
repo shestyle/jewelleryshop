@@ -2,31 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>✨ Handmade Jewelry Store</title>
+  <title>Handmade Jewelry</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Hero Banner -->
+<header class="navbar">
+  <div class="logo">✨ Handmade</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
 <section class="hero">
   <div class="hero-slide active">
-    <h1>Beautiful Handmade Jewelry</h1>
-    <p>Crafted with passion ❤️</p>
+    <h1>Handcrafted Jewelry</h1>
+    <p>Minimal • Elegant • Timeless</p>
     <a href="#products">Shop Now</a>
   </div>
   <div class="hero-slide">
-    <h1>Unique & Elegant Designs</h1>
-    <p>Wear your story</p>
+    <h1>Inspired by Art</h1>
+    <p>Every piece tells a story</p>
     <a href="#products">Explore</a>
   </div>
 </section>
 
-<!-- Featured Products -->
-<section id="products" class="products">
-  <h2>✨ Featured Collection</h2>
+<section class="products" id="products">
+  <h2>Featured Collection</h2>
+
+  <div class="filters">
+    <button class="active" onclick="filterProducts('all')">All</button>
+    <button onclick="filterProducts('ring')">Rings</button>
+    <button onclick="filterProducts('necklace')">Necklace</button>
+    <button onclick="filterProducts('bracelet')">Bracelet</button>
+  </div>
+
   <div class="grid" id="productGrid"></div>
 </section>
 
-<script src="home.js" type="module"></script>
+<script type="module" src="home.js"></script>
 </body>
 </html>
