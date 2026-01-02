@@ -1,41 +1,31 @@
 import { auth, db, storage } from "./firebase.js";
-import { signInWithEmailAndPassword } from 
+import { signInWithEmailAndPassword } from
 "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-import { ref, uploadBytes, getDownloadURL } from 
+import { ref, uploadBytes, getDownloadURL } from
 "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
-import { collection, addDoc } from 
+import { addDoc, collection } from
 "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-window.login = function () {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => alert("Admin Logged In"))
-    .catch(err => alert(err.message));
+window.login = () => {
+  signInWithEmailAndPassword(
+    auth,
+    email.value,
+    password.value
+  ).then(() => alert("Logged in"));
 };
 
-window.uploadProduct = async function () {
-  const image = document.getElementById("image").files[0];
-  const name = document.getElementById("name").value;
-  const price = document.getElementById("price").value;
+window.uploadProduct = async () => {
+  const file = image.files[0];
+  const imgRef = ref(storage, `jewelry/${Date.now()}`);
+  await uploadBytes(imgRef, file);
+  const url = await getDownloadURL(imgRef);
 
-  if (!image || !name || !price) {
-    alert("Fill all fields");
-    return;
-  }
-
-  const imageRef = ref(storage, `jewelry/${Date.now()}-${image.name}`);
-  await uploadBytes(imageRef, image);
-  const imageURL = await getDownloadURL(imageRef);
-
-  await addDoc(collection(db, "products"), {
-    name,
-    price,
-    imageURL
+  await addDoc(collection(db,"products"),{
+    name: name.value,
+    price: price.value,
+    category: category.value,
+    imageURL: url
   });
 
-  alert("Product Uploaded Successfully");
+  alert("Product uploaded");
 };
