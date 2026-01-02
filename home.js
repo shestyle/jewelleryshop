@@ -24,7 +24,7 @@ function renderProducts(){
         <img src="${p.imageURL}">
         <h4>${p.name}</h4>
         <p>₹${p.price}</p>
-        <button onclick="addToCart('${p.id}')">Add to Cart</button>
+        <button onclick="addToCart('${p.id}')">   🛒 <span>Add to Cart</span> </button>
       </div>
     `;
   });
