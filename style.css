@@ -49,4 +49,92 @@ body {
 
 .hero-slide img {
   width: 100%;
-  height:
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.hero-text span {
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+.hero-text h1 {
+  font-size: 6rem;
+  margin: 10px 0;
+  letter-spacing: 2px;
+}
+
+.hero-text a {
+  background: white;
+  color: black;
+  padding: 14px 32px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.cat {
+  min-width: 140px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 40px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.card button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg,#8b4aa8,#b983d1);
+  color: white;
+  font-weight: 600;
+}
+
+/* MOBILE */
+@media (max-width:600px) {
+  .hero-text h1 { font-size: 3.2rem; }
+}
