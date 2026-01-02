@@ -4,25 +4,16 @@
   <title>Admin Panel</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="admin">
+<body>
 
-<h2>Admin Login</h2>
-<input id="email" type="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
-
-<hr>
-
-<h2>Upload Jewelry</h2>
+<h2>Upload Product</h2>
+<input id="name" placeholder="Name">
+<input id="price" placeholder="Price">
 <input type="file" id="image">
-<input type="text" id="name" placeholder="Item Name">
-<input type="number" id="price" placeholder="Price">
-<select id="category">
-  <option value="ring">Ring</option>
-  <option value="necklace">Necklace</option>
-  <option value="bracelet">Bracelet</option>
-</select>
-<button onclick="uploadProduct()">Upload</button>
+<button onclick="upload()">Upload</button>
+
+<h3>All Products</h3>
+<div id="adminList"></div>
 
 <script type="module" src="admin.js"></script>
 </body>
