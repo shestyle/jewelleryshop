@@ -111,7 +111,35 @@ body {
   box-shadow: 0 8px 20px rgba(183,110,121,0.35);
 }
 
+#cartBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+
+  background: #f2e6e8;
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+#cartBtn span {
+  background: var(--primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+
+
 /* Mobile tap feedback */
-.card button:active {
-  transform: scale(0.97);
+@media (max-width: 600px) {
+  .card button {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
 }
