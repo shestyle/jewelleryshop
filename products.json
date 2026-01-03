@@ -5,7 +5,7 @@
     "description": "Polished gold ring with a sleek, modern profile — perfect for everyday elegance.",
     "price": 3499.00,
     "category": "Rings",
-    "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=80"
+    "image": "assets/ring-01.jpg"
   },
   {
     "id": "necklace-01",
@@ -13,7 +13,7 @@
     "description": "Hand-strung freshwater pearls with a delicate gold clasp for timeless grace.",
     "price": 7499.00,
     "category": "Necklaces",
-    "image": "https://images.unsplash.com/photo-1520975912895-4d6f9d8b8f6f?auto=format&fit=crop&w=1400&q=80"
+    "image": "assets/necklace-01.jpg"
   },
   {
     "id": "earrings-01",
@@ -21,7 +21,7 @@
     "description": "Brushed-metal drops with faceted stones for a soft, luminous finish.",
     "price": 2899.00,
     "category": "Earrings",
-    "image": "https://images.unsplash.com/photo-1545510535-6c87aa5f6b46?auto=format&fit=crop&w=1400&q=80"
+    "image": "assets/earrings-01.jpg"
   },
   {
     "id": "bracelet-01",
@@ -29,7 +29,7 @@
     "description": "A refined chain bracelet in warm gold tone, designed to layer beautifully.",
     "price": 4199.00,
     "category": "Bracelets",
-    "image": "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1400&q=80"
+    "image": "assets/bracelet-01.jpg"
   },
   {
     "id": "hair-01",
@@ -37,7 +37,7 @@
     "description": "Plush velvet with subtle gold hardware — an elegant finishing touch.",
     "price": 1299.00,
     "category": "Hair Accessories",
-    "image": "https://images.unsplash.com/photo-1556228453-01f4d6a99b9c?auto=format&fit=crop&w=1400&q=80"
+    "image": "assets/hair-01.jpg"
   },
   {
     "id": "scarf-01",
@@ -45,6 +45,6 @@
     "description": "Lightweight silk scarf with a metallic thread detail to lift any outfit.",
     "price": 1999.00,
     "category": "Accessories",
-    "image": "https://images.unsplash.com/photo-1503342452485-86f7f2f8b6d7?auto=format&fit=crop&w=1400&q=80"
+    "image": "assets/scarf-01.jpg"
   }
 ]
