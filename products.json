@@ -1,92 +1,50 @@
-// product detail page script
-// reads ?id=... , loads products.json, finds product and renders details
-// supports add-to-cart using same localStorage schema
-
-const cartCountEl = document.querySelector('#cart-count');
-let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-function updateCartCount(){ cartCountEl.textContent = cart.length; }
-updateCartCount();
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const currency = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 });
-
-function getQueryParam(name){
-  const params = new URLSearchParams(location.search);
-  return params.get(name);
-}
-
-async function loadAndRender(){
-  const id = getQueryParam('id');
-  if(!id){
-    document.getElementById('product-container').innerHTML = '<p>Product not specified. <a href="/">Back to shop</a></p>';
-    return;
+[
+  {
+    "id": "ring-01",
+    "name": "Aurelia Gold Ring",
+    "description": "Polished gold ring with a sleek, modern profile — perfect for everyday elegance.",
+    "price": 3499.00,
+    "category": "Rings",
+    "image": "assets/ring-01.jpg"
+  },
+  {
+    "id": "necklace-01",
+    "name": "Lumière Pearl Necklace",
+    "description": "Hand-strung freshwater pearls with a delicate gold clasp for timeless grace.",
+    "price": 7499.00,
+    "category": "Necklaces",
+    "image": "assets/necklace-01.jpg"
+  },
+  {
+    "id": "earrings-01",
+    "name": "Solstice Drop Earrings",
+    "description": "Brushed-metal drops with faceted stones for a soft, luminous finish.",
+    "price": 2899.00,
+    "category": "Earrings",
+    "image": "assets/earrings-01.jpg"
+  },
+  {
+    "id": "bracelet-01",
+    "name": "Marais Chain Bracelet",
+    "description": "A refined chain bracelet in warm gold tone, designed to layer beautifully.",
+    "price": 4199.00,
+    "category": "Bracelets",
+    "image": "assets/bracelet-01.jpg"
+  },
+  {
+    "id": "hair-01",
+    "name": "Velvet Bow Hair Clip",
+    "description": "Plush velvet with subtle gold hardware — an elegant finishing touch.",
+    "price": 1299.00,
+    "category": "Hair Accessories",
+    "image": "assets/hair-01.jpg"
+  },
+  {
+    "id": "scarf-01",
+    "name": "Glow Silk Scarf",
+    "description": "Lightweight silk scarf with a metallic thread detail to lift any outfit.",
+    "price": 1999.00,
+    "category": "Accessories",
+    "image": "assets/scarf-01.jpg"
   }
-
-  try {
-    const res = await fetch('products.json');
-    if(!res.ok) throw new Error('Products not found');
-    const products = await res.json();
-    const product = products.find(p=>p.id === id);
-    if(!product){
-      document.getElementById('product-container').innerHTML = '<p>Product not found. <a href="/">Back to shop</a></p>';
-      return;
-    }
-    renderProduct(product);
-  } catch (e) {
-    console.error(e);
-    document.getElementById('product-container').innerHTML = '<p>Error loading product. <a href="/">Back to shop</a></p>';
-  }
-}
-
-function renderProduct(p){
-  const container = document.getElementById('product-container');
-  container.innerHTML = `
-    <div class="product-detail">
-      <div class="detail-media">
-        <img src="${p.image}" alt="${escapeHtml(p.name)}" onerror="this.src='https://via.placeholder.com/1200x900?text=${encodeURIComponent(p.name)}'">
-      </div>
-      <div class="detail-info">
-        <a href="/" style="text-decoration:none;color:var(--muted);font-size:0.95rem;">← Back to shop</a>
-        <h2>${escapeHtml(p.name)}</h2>
-        <div class="price">${currency.format(p.price)}</div>
-        <p>${escapeHtml(p.description)}</p>
-        <div style="margin-top:1rem;">
-          <button id="add-to-cart" class="btn">Add to cart</button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.getElementById('add-to-cart').addEventListener('click', () => {
-    cart.push(p);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    showToast(`${p.name} added to cart.`);
-  });
-}
-
-// small toast (same as index)
-function showToast(msg){
-  const t = document.createElement('div');
-  t.textContent = msg;
-  Object.assign(t.style, {
-    position:'fixed', right:'1rem', bottom:'1rem',
-    background:'#111', color:'#fff', padding:'0.6rem 0.9rem',
-    borderRadius:'8px', boxShadow:'0 8px 26px rgba(0,0,0,0.2)', zIndex:1000, opacity:0, transition:'opacity .18s'
-  });
-  document.body.appendChild(t);
-  requestAnimationFrame(()=>t.style.opacity=1);
-  setTimeout(()=>{ t.style.opacity=0; setTimeout(()=>t.remove(),200) }, 1800);
-}
-
-function escapeHtml(str){
-  return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
-
-loadAndRender();
+]
